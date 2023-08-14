@@ -1,0 +1,5 @@
+class	ignoreAtTest	noCount
+de.voomdoon.logging.connector.log4j2.Log4j2LogEventHandler	true	false
+
+de.voomdoon.logging.test.TestLogEventHandler	false	true
+de.voomdoon.logging.test.TestLogEventHandler2	true	true
