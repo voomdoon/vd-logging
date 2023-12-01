@@ -138,7 +138,7 @@ public class TestLogEvent implements LogEvent {
 	 * @return
 	 * @since 0.1.0
 	 */
-	public LogEvent setTimestamp(long timestamp) {
+	public TestLogEvent setTimestamp(long timestamp) {
 		this.timestamp = timestamp;
 
 		return this;
