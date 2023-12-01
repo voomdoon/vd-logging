@@ -53,6 +53,8 @@ public enum LogLevel {
 	}
 
 	/**
+	 * higher: more important
+	 * 
 	 * @return priority
 	 * @since 0.1.0
 	 */
