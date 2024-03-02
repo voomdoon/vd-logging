@@ -2,6 +2,7 @@ package de.voomdoon.logging.root;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.NoSuchElementException;
@@ -83,7 +84,7 @@ public abstract class RootLoggerTest {
 	 */
 	@Test
 	void testLog_LogEvent() throws Exception {
-		rootLogger.log(new TestLogEvent());
+		assertDoesNotThrow(() -> rootLogger.log(new TestLogEvent()));
 	}
 
 	/**
