@@ -16,6 +16,8 @@
 
 	<properties>
 		<skipTestJar>false</skipTestJar>
+		
+		<junit.version>5.10.1</junit.version>
 	</properties>
 
 	<dependencies>
@@ -30,7 +32,13 @@
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
-			<version>5.10.1</version>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-params</artifactId>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
