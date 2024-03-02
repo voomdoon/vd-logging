@@ -1,6 +1,7 @@
 package de.voomdoon.logging;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +9,8 @@ import java.util.Set;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EnumSource;
 
 import de.voomdoon.logging.logger.DefaultLoggerTest;
 import de.voomdoon.logging.root.RootLogger;
@@ -62,12 +65,12 @@ public abstract class LoggerTest {
 	/**
 	 * @since 0.1.0
 	 */
-	private static final List<LogEvent> EVENTS = new ArrayList<>();
+	protected static TestRootLogger ROOT_LOGGER = new TestRootLogger();
 
 	/**
 	 * @since 0.1.0
 	 */
-	protected static TestRootLogger ROOT_LOGGER = new TestRootLogger();
+	private static final List<LogEvent> EVENTS = new ArrayList<>();
 
 	/**
 	 * @since 0.1.0
@@ -77,12 +80,12 @@ public abstract class LoggerTest {
 	/**
 	 * @since 0.1.0
 	 */
-	private Logger logger;
+	protected Object message = new Object();
 
 	/**
 	 * @since 0.1.0
 	 */
-	protected Object message = new Object();
+	private Logger logger;
 
 	/**
 	 * @param logger
@@ -235,14 +238,14 @@ public abstract class LoggerTest {
 	}
 
 	/**
+	 * @param level
 	 * @throws Exception
-	 * @since 0.1.0
+	 * @since DOCME add inception version number
 	 */
-	@Test
-	void testIsActive() throws Exception {
-		for (LogLevel level : LogLevel.values()) {
-			logger.isActive(level);
-		}
+	@ParameterizedTest
+	@EnumSource(LogLevel.class)
+	void testIsActive_doesNotThrowAnything(LogLevel level) throws Exception {
+		assertDoesNotThrow(() -> logger.isActive(level));
 	}
 
 	/**
