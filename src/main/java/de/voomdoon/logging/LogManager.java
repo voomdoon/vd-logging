@@ -74,13 +74,10 @@ public class LogManager {
 	}
 
 	/**
-	 * DOCME
-	 *
 	 * @param handler
 	 * @since 0.1.0
 	 */
 	void addLogEventHandlerInternal(LogEventHandler handler) {
-		System.out.println("LogManager: addLogEventHandler " + handler);
 		rootLogger.addLogEventHandler(handler);
 	}
 
@@ -95,9 +92,12 @@ public class LogManager {
 		return CLASS_LOGGERS.computeIfAbsent(clazz, c -> new DefaultLogger(rootLogger, clazz));
 	}
 
+	/**
+	 * @since DOCME add inception version number
+	 */
 	private void logInitialization() {
 		getLogger(getClass())
-				.debug("initialized logging with " + rootLogger.getLogEventHanderNames().stream().sorted().toList());
+				.trace("initialized logging with " + rootLogger.getLogEventHanderNames().stream().sorted().toList());
 	}
 
 	/**
