@@ -66,9 +66,9 @@ class LogEventHandlersInitializer {
 	private Set<String> addLogEventHandlers(ClassLoader classLoader) {
 		Set<String> result = new HashSet<>();
 
-		ServiceLoader<LogEventHandler> loader = ServiceLoader.load(LogEventHandler.class, classLoader);
+		ServiceLoader<LogEventHandler> loaders = ServiceLoader.load(LogEventHandler.class, classLoader);
 
-		for (LogEventHandler handler : loader) {
+		for (LogEventHandler handler : loaders) {
 			logManager.addLogEventHandlerInternal(handler);// TESTME
 			result.add(handler.getClass().getSimpleName());
 		}
