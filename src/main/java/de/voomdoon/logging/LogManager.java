@@ -20,6 +20,9 @@ public class LogManager {
 	 */
 	private static final WeakHashMap<Class<?>, Logger> CLASS_LOGGERS = new WeakHashMap<>();
 
+	/**
+	 * @since 0.1.0
+	 */
 	private static final LogManager INSTANCE;
 
 	static {
@@ -82,9 +85,8 @@ public class LogManager {
 	}
 
 	/**
-	 * DOCME
-	 *
 	 * @param clazz
+	 *            {@link Class}
 	 * @return
 	 * @since 0.1.0
 	 */
@@ -93,7 +95,7 @@ public class LogManager {
 	}
 
 	/**
-	 * @since DOCME add inception version number
+	 * @since 0.1.0
 	 */
 	private void logInitialization() {
 		getLogger(getClass())
