@@ -56,7 +56,7 @@ public class LogManager {
 	 * @since 0.1.0
 	 */
 	public static void removeLogEventHandler(LogEventHandler handler) {
-		INSTANCE.removeLogEventHandlerInternal(handler);
+		INSTANCE.rootLogger.removeLogEventHandler(handler);
 	}
 
 	/**
@@ -98,15 +98,5 @@ public class LogManager {
 	private void logInitialization() {
 		getLogger(getClass())
 				.trace("initialized logging with " + rootLogger.getLogEventHanderNames().stream().sorted().toList());
-	}
-
-	/**
-	 * DOCME
-	 *
-	 * @param handler
-	 * @since 0.1.0
-	 */
-	private void removeLogEventHandlerInternal(LogEventHandler handler) {
-		rootLogger.removeLogEventHandler(handler);
 	}
 }
