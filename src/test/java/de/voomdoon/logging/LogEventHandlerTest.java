@@ -22,8 +22,6 @@ public abstract class LogEventHandlerTest {
 	protected LogEventHandler handler;
 
 	/**
-	 * DOCME add JavaDoc for constructor LogEventHandlerTest
-	 *
 	 * @param handler
 	 * @since 0.1.0
 	 */

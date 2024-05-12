@@ -10,8 +10,6 @@ package de.voomdoon.logging.root;
 public class SynchronousRootLoggerTest extends RootLoggerTest {
 
 	/**
-	 * DOCME add JavaDoc for constructor SynchronousRootLoggerTest
-	 *
 	 * @param rootLogger
 	 * @since 0.1.0
 	 */

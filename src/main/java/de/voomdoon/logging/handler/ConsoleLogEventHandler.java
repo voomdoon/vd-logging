@@ -61,8 +61,6 @@ public class ConsoleLogEventHandler implements LogEventHandler {
 	}
 
 	/**
-	 * DOCME add JavaDoc for method getName
-	 *
 	 * @param sourceClass
 	 * @return
 	 * @since 0.1.0

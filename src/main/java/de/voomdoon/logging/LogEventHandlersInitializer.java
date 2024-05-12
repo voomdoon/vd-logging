@@ -33,9 +33,7 @@ class LogEventHandlersInitializer {
 	}
 
 	/**
-	 * DOCME add JavaDoc for method initialize
-	 * 
-	 * @since DOCME add inception version number
+	 * @since 0.1.0
 	 */
 	void initialize() {
 		initialize(LogEventHandler.class.getClassLoader());
@@ -60,7 +58,7 @@ class LogEventHandlersInitializer {
 	 *
 	 * @param logManager
 	 *
-	 * @return DOCME
+	 * @return {@link Set} of class names of added {@link LogEventHandler}s
 	 * @since 0.1.0
 	 */
 	private Set<String> addLogEventHandlers(ClassLoader classLoader) {

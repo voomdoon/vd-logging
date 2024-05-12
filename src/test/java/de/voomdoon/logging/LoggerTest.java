@@ -240,7 +240,7 @@ public abstract class LoggerTest {
 	/**
 	 * @param level
 	 * @throws Exception
-	 * @since DOCME add inception version number
+	 * @since 0.1.0
 	 */
 	@ParameterizedTest
 	@EnumSource(LogLevel.class)

@@ -4,8 +4,6 @@ import de.voomdoon.logging.LogEvent;
 import de.voomdoon.logging.LogLevel;
 
 /**
- * DOCME add JavaDoc for
- *
  * @author André Schulz
  *
  * @since 0.1.0

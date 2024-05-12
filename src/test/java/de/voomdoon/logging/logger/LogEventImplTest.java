@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import de.voomdoon.logging.LogLevel;
 
 /**
- * DOCME add JavaDoc for
+ * Test class for {@link LogEventImpl}.
  *
  * @author André Schulz
  *
@@ -17,8 +17,6 @@ import de.voomdoon.logging.LogLevel;
 class LogEventImplTest {
 
 	/**
-	 * DOCME add JavaDoc for LogEventImplTest
-	 *
 	 * @author André Schulz
 	 *
 	 * @since 0.1.0
@@ -32,8 +30,6 @@ class LogEventImplTest {
 		private LogEventImpl logEvent = new LogEventImpl(LogLevel.DEBUG, "test-message");
 
 		/**
-		 * DOCME add JavaDoc for method test
-		 * 
 		 * @since 0.1.0
 		 */
 		@Test
@@ -44,8 +40,6 @@ class LogEventImplTest {
 		}
 
 		/**
-		 * DOCME add JavaDoc for method test
-		 * 
 		 * @since 0.1.0
 		 */
 		@Test

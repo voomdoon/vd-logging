@@ -23,27 +23,27 @@ import de.voomdoon.logging.root.RootLogger;
  *
  * @author André Schulz
  *
- * @since DOCME add inception version number
+ * @since 0.1.0
  */
 class LogEventHandlersInitializerTest {
 
 	/**
 	 * @author André Schulz
 	 *
-	 * @since DOCME add inception version number
+	 * @since 0.1.0
 	 */
 	private class TestClassLoader extends URLClassLoader {
 
 		/**
 		 * @param urls
-		 * @since DOCME add inception version number
+		 * @since 0.1.0
 		 */
 		public TestClassLoader(URL[] urls) {
 			super(urls);
 		}
 
 		/**
-		 * @since DOCME add inception version number
+		 * @since 0.1.0
 		 */
 		@Override
 		public Enumeration<URL> getResources(String name) throws IOException {
@@ -59,7 +59,7 @@ class LogEventHandlersInitializerTest {
 	}
 
 	/**
-	 * @since DOCME add inception version number
+	 * @since 0.1.0
 	 */
 	@Test
 	void testInitialize_default_ConsoleLogEventHandler() {
@@ -85,7 +85,7 @@ class LogEventHandlersInitializerTest {
 	}
 
 	/**
-	 * @since DOCME add inception version number
+	 * @since 0.1.0
 	 */
 	@Test
 	void testInitialize_withImplementation() {

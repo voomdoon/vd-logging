@@ -8,8 +8,6 @@ import de.voomdoon.logging.LogEvent;
 import de.voomdoon.logging.LogEventHandler;
 
 /**
- * DOCME add JavaDoc for
- *
  * @author André Schulz
  *
  * @since 0.1.0
