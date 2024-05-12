@@ -79,4 +79,11 @@ public class LoggingTestUtil {
 
 		return new Out(out, err);
 	}
+
+	/**
+	 * @since 0.1.0
+	 */
+	private LoggingTestUtil() {
+		// nothing to do
+	}
 }
