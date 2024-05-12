@@ -3,8 +3,6 @@ package de.voomdoon.logging.test;
 import de.voomdoon.logging.LogEvent;
 import de.voomdoon.logging.LogLevel;
 
-//TODO use LomBock
-
 /**
  * @author André Schulz
  *
