@@ -8,6 +8,8 @@ import static org.mockito.Mockito.verify;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.Collections;
@@ -51,7 +53,11 @@ class LogEventHandlersInitializerTest {
 				String location = System.getProperty("user.dir")
 						+ "/src/test/resources/META-INF_services/de.voomdoon.logging.LogEventHandler";
 
-				return Collections.enumeration(List.of(new URL("file:/" + location)));
+				try {
+					return Collections.enumeration(List.of(new URI("file:/" + location.replace("\\", "/")).toURL()));
+				} catch (URISyntaxException e) {
+					throw new IOException("Error at 'getResources': " + e.getMessage(), e);
+				}
 			}
 
 			return super.getResources(name);
