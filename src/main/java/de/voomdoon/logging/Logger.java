@@ -63,7 +63,7 @@ public interface Logger {
 	 * @param level
 	 * @return
 	 * @since 0.1.0
-	 * @deprecated not yet implemented
+	 * @deprecated FEATURE #12: support isActive(LogLevel)
 	 */
 	@Deprecated
 	boolean isActive(LogLevel level);
