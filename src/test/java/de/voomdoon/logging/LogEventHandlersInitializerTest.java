@@ -6,10 +6,9 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.Collections;
@@ -54,8 +53,8 @@ class LogEventHandlersInitializerTest {
 						+ "/src/test/resources/META-INF_services/de.voomdoon.logging.LogEventHandler";
 
 				try {
-					return Collections.enumeration(List.of(new URI("file:/" + location.replace("\\", "/")).toURL()));
-				} catch (URISyntaxException e) {
+					return Collections.enumeration(List.of(new File(location).toURI().toURL()));
+				} catch (Exception e) {
 					throw new IOException("Error at 'getResources': " + e.getMessage(), e);
 				}
 			}
