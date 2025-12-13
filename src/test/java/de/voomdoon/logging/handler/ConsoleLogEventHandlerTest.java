@@ -150,6 +150,18 @@ class ConsoleLogEventHandlerTest extends LogEventHandlerTest {
 	}
 
 	/**
+	 * @since 0.2.0
+	 */
+	@Test
+	void testHandleLogEvent_sourceClass_null() throws Exception {
+		TestLogEvent event = new TestLogEvent().setSourceClass(null);
+
+		Out actualOutput = LoggingTestUtil.runHandleLogEvent(() -> handler, event);
+
+		assertThat(actualOutput.getOut()).contains("null");
+	}
+
+	/**
 	 * @since 0.1.0
 	 */
 	@Test
