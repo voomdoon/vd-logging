@@ -5,6 +5,7 @@ import java.util.ServiceLoader;
 import java.util.Set;
 
 import de.voomdoon.logging.handler.ConsoleLogEventHandler;
+import de.voomdoon.logging.logger.LogEventImpl;
 import de.voomdoon.logging.root.RootLogger;
 
 /**
@@ -48,8 +49,9 @@ class LogEventHandlersInitializer {
 		Set<String> added = addLogEventHandlers(classLoader);
 
 		if (added.isEmpty()) {
-			System.out.println("LogEventHandlersInitializer: no LogEventHandler found: adding ConsoleLogEventHandler");
 			rootLogger.addLogEventHandler(new ConsoleLogEventHandler());// TESTME
+			rootLogger.log(new LogEventImpl(LogLevel.INFO,
+					"LogEventHandlersInitializer: no LogEventHandler found: added ConsoleLogEventHandler"));
 		}
 	}
 
