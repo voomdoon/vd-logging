@@ -104,7 +104,7 @@ public class DefaultLogger implements Logger {
 	 */
 	@Override
 	public boolean isActive(LogLevel level) {
-		// TODO implement isActive
+		// FEATURE #1: implement isActive
 		return true;
 	}
 
