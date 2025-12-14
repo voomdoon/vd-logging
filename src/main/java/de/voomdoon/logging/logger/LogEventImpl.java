@@ -13,27 +13,27 @@ public class LogEventImpl implements LogEvent {
 	/**
 	 * @since 0.1.0
 	 */
-	private Throwable error;
+	private final Throwable error;
 
 	/**
 	 * @since 0.1.0
 	 */
-	private LogLevel level;
+	private final LogLevel level;
 
 	/**
 	 * @since 0.1.0
 	 */
-	private Object message;
+	private final Object message;
 
 	/**
 	 * @since 0.1.0
 	 */
-	private Class<?> sourceClass;
+	private final Class<?> sourceClass;
 
 	/**
 	 * @since 0.1.0
 	 */
-	private long timestamp;
+	private final long timestamp;
 
 	/**
 	 * @param level
@@ -43,10 +43,7 @@ public class LogEventImpl implements LogEvent {
 	 * @since 0.1.0
 	 */
 	public LogEventImpl(LogLevel level, Object message) {
-		this.level = level;
-		this.message = message;
-
-		timestamp = System.currentTimeMillis();
+		this(level, message, null);
 	}
 
 	/**
@@ -59,9 +56,25 @@ public class LogEventImpl implements LogEvent {
 	 * @since 0.1.0
 	 */
 	public LogEventImpl(LogLevel level, Object message, Throwable error) {
-		this(level, message);
+		this(level, message, error, null);
+	}
 
+	/**
+	 * DOCME add JavaDoc for constructor LogEventImpl
+	 * 
+	 * @param level
+	 * @param message
+	 * @param error
+	 * @param sourceClass
+	 * @since 0.2.0
+	 */
+	public LogEventImpl(LogLevel level, Object message, Throwable error, Class<?> sourceClass) {
+		this.level = level;
+		this.message = message;
 		this.error = error;
+		this.sourceClass = sourceClass;
+
+		timestamp = System.currentTimeMillis();
 	}
 
 	/**
@@ -102,15 +115,6 @@ public class LogEventImpl implements LogEvent {
 	@Override
 	public long getTimestamp() {
 		return timestamp;
-	}
-
-	/**
-	 * @param sourceClass
-	 *            {@link Class}
-	 * @since 0.1.0
-	 */
-	public void setSourceClass(Class<?> sourceClass) {
-		this.sourceClass = sourceClass;
 	}
 
 	/**

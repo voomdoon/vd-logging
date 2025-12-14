@@ -121,7 +121,7 @@ public class DefaultLogger implements Logger {
 	 */
 	@Override
 	public void log(LogLevel level, Object message, Throwable throwable) {
-		log(new LogEventImpl(level, message, throwable));
+		rootLogger.log(new LogEventImpl(level, message, throwable, sourceClass));
 	}
 
 	/**
@@ -154,15 +154,5 @@ public class DefaultLogger implements Logger {
 	@Override
 	public void warn(Object message, Throwable throwable) {
 		log(LogLevel.WARN, message, throwable);
-	}
-
-	/**
-	 * @param logEventImpl
-	 *            {@link LogEventImpl}
-	 * @since 0.1.0
-	 */
-	private void log(LogEventImpl logEventImpl) {
-		logEventImpl.setSourceClass(sourceClass);
-		rootLogger.log(logEventImpl);
 	}
 }
