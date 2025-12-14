@@ -65,7 +65,7 @@ public abstract class LoggerTest {
 	/**
 	 * @since 0.1.0
 	 */
-	protected static TestRootLogger ROOT_LOGGER = new TestRootLogger();
+	protected static TestRootLogger rootLogger = new TestRootLogger();
 
 	/**
 	 * @since 0.1.0

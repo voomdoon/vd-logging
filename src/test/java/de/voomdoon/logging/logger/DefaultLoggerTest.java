@@ -15,6 +15,6 @@ public class DefaultLoggerTest extends LoggerTest {
 	 * @since 0.1.0
 	 */
 	public DefaultLoggerTest() {
-		super(new DefaultLogger(ROOT_LOGGER, DefaultLoggerTest.class));
+		super(new DefaultLogger(rootLogger, DefaultLoggerTest.class));
 	}
 }
