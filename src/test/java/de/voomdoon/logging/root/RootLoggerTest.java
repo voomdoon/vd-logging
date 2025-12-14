@@ -36,11 +36,10 @@ public abstract class RootLoggerTest {
 	}
 
 	/**
-	 * @throws Exception
 	 * @since 0.1.0
 	 */
 	@Test
-	void testAddLogEventHandler_same() throws Exception {
+	void testAddLogEventHandler_same() {
 		TestLogEventHandler handler = new TestLogEventHandler();
 
 		rootLogger.addLogEventHandler(handler);
@@ -52,11 +51,10 @@ public abstract class RootLoggerTest {
 	}
 
 	/**
-	 * @throws Exception
 	 * @since 0.1.0
 	 */
 	@Test
-	void testGetLogEventHanderNames_className() throws Exception {
+	void testGetLogEventHanderNames_className() {
 		TestLogEventHandler handler = new TestLogEventHandler();
 
 		rootLogger.addLogEventHandler(handler);
@@ -65,11 +63,10 @@ public abstract class RootLoggerTest {
 	}
 
 	/**
-	 * @throws Exception
 	 * @since 0.1.0
 	 */
 	@Test
-	void testGetLogEventHanderNames_empty() throws Exception {
+	void testGetLogEventHanderNames_empty() {
 		TestLogEventHandler handler = new TestLogEventHandler();
 
 		rootLogger.addLogEventHandler(handler);
@@ -79,20 +76,18 @@ public abstract class RootLoggerTest {
 	}
 
 	/**
-	 * @throws Exception
 	 * @since 0.1.0
 	 */
 	@Test
-	void testLog_LogEvent() throws Exception {
+	void testLog_LogEvent() {
 		assertDoesNotThrow(() -> rootLogger.log(new TestLogEvent()));
 	}
 
 	/**
-	 * @throws Exception
 	 * @since 0.1.0
 	 */
 	@Test
-	void testRemoveLogEventHandler() throws Exception {
+	void testRemoveLogEventHandler() {
 		TestLogEventHandler handler = new TestLogEventHandler();
 
 		rootLogger.addLogEventHandler(handler);
@@ -104,11 +99,10 @@ public abstract class RootLoggerTest {
 	}
 
 	/**
-	 * @throws Exception
 	 * @since 0.1.0
 	 */
 	@Test
-	void testRemoveLogEventHandler_error_NoSuchElementException() throws Exception {
+	void testRemoveLogEventHandler_error_NoSuchElementException() {
 		TestLogEventHandler handler = new TestLogEventHandler();
 
 		assertThatThrownBy(() -> rootLogger.removeLogEventHandler(handler)).isInstanceOf(NoSuchElementException.class)
@@ -116,11 +110,10 @@ public abstract class RootLoggerTest {
 	}
 
 	/**
-	 * @throws Exception
 	 * @since 0.1.0
 	 */
 	@Test
-	void testRemoveLogEventHandler_error_NullPointerException() throws Exception {
+	void testRemoveLogEventHandler_error_NullPointerException() {
 		try {
 			rootLogger.removeLogEventHandler(null);
 			fail("Missing 'NullPointerException'!");

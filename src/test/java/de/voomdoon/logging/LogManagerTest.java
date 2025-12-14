@@ -35,21 +35,19 @@ class LogManagerTest {
 	class AddLogEventHandler {
 
 		/**
-		 * @throws Exception
 		 * @since 0.1.0
 		 */
 		@Test
-		void test_error_NullPointerException_handler_null() throws Exception {
+		void test_error_NullPointerException_handler_null() {
 			assertThatThrownBy(() -> LogManager.addLogEventHandler(null)).isInstanceOf(NullPointerException.class)
 					.hasMessageContaining("handler");
 		}
 
 		/**
-		 * @throws Exception
 		 * @since 0.1.0
 		 */
 		@Test
-		void test_one() throws Exception {
+		void test_one() {
 			TestLogEventHandler handler = new TestLogEventHandler();
 
 			LogManager.addLogEventHandler(handler);
@@ -61,11 +59,10 @@ class LogManagerTest {
 		}
 
 		/**
-		 * @throws Exception
 		 * @since 0.1.0
 		 */
 		@Test
-		void test_same() throws Exception {
+		void test_same() {
 			TestLogEventHandler handler = new TestLogEventHandler();
 
 			LogManager.addLogEventHandler(handler);
@@ -78,11 +75,10 @@ class LogManagerTest {
 		}
 
 		/**
-		 * @throws Exception
 		 * @since 0.1.0
 		 */
 		@Test
-		void test_two() throws Exception {
+		void test_two() {
 			TestLogEventHandler handler1 = new TestLogEventHandler();
 			TestLogEventHandler handler2 = new TestLogEventHandler();
 
@@ -129,22 +125,20 @@ class LogManagerTest {
 		}
 
 		/**
-		 * @throws Exception
 		 * @since 0.1.0
 		 */
 		@Test
-		void test() throws Exception {
+		void test() {
 			Logger actual = LogManager.getLogger(LogManagerTest.class);
 
 			assertThat(actual).isNotNull();
 		}
 
 		/**
-		 * @throws Exception
 		 * @since 0.1.0
 		 */
 		@Test
-		void test_logToConsole() throws Exception {
+		void test_logToConsole() {
 			ByteArrayOutputStream out = new ByteArrayOutputStream();
 			System.setOut(new PrintStream(out));
 
@@ -155,11 +149,10 @@ class LogManagerTest {
 		}
 
 		/**
-		 * @throws Exception
 		 * @since 0.1.0
 		 */
 		@Test
-		void test_sameInstance() throws Exception {
+		void test_sameInstance() {
 			Logger actual1 = LogManager.getLogger(LogManagerTest.class);
 			Logger actual2 = LogManager.getLogger(LogManagerTest.class);
 
@@ -178,11 +171,10 @@ class LogManagerTest {
 	class RemoveLogEventHandler {
 
 		/**
-		 * @throws Exception
 		 * @since 0.1.0
 		 */
 		@Test
-		void test() throws Exception {
+		void test() {
 			TestLogEventHandler handler = new TestLogEventHandler();
 
 			LogManager.addLogEventHandler(handler);
@@ -195,11 +187,10 @@ class LogManagerTest {
 		}
 
 		/**
-		 * @throws Exception
 		 * @since 0.1.0
 		 */
 		@Test
-		void test_error_NoSuchElementException() throws Exception {
+		void test_error_NoSuchElementException() {
 			TestLogEventHandler handler = new TestLogEventHandler();
 
 			assertThatThrownBy(() -> LogManager.removeLogEventHandler(handler))
@@ -207,11 +198,10 @@ class LogManagerTest {
 		}
 
 		/**
-		 * @throws Exception
 		 * @since 0.1.0
 		 */
 		@Test
-		void test_error_NullPointerException() throws Exception {
+		void test_error_NullPointerException() {
 			assertThatThrownBy(() -> LogManager.removeLogEventHandler(null)).isInstanceOf(NullPointerException.class)
 					.hasMessageContaining("handler");
 		}
@@ -224,31 +214,5 @@ class LogManagerTest {
 	void beforeEach() {
 		TestLogEventHandler.getInstances().clear();
 		TestLogEventHandler2.getInstances().clear();
-	}
-
-	/**
-	 * @throws Exception
-	 * @since 0.1.0
-	 */
-	@Test
-	void test_initialization_addHandlers() throws Exception {
-		LogManager manager = new LogManager();
-
-		manager.getLoggerInternal(getClass()).info("test-message");
-
-		// TODO assertThat(TestLogEventHandler.getInstances()).isNotEmpty();
-	}
-
-	/**
-	 * @throws Exception
-	 * @since 0.1.0
-	 */
-	@Test
-	void test_initialization_addHandlers_ignoreNoTest() throws Exception {
-		LogManager manager = new LogManager();
-
-		manager.getLoggerInternal(getClass()).info("test-message");
-
-		assertThat(TestLogEventHandler2.getInstances()).isEmpty();
 	}
 }

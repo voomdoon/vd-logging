@@ -67,7 +67,7 @@ class LogEventHandlersInitializerTest {
 	 * @since 0.1.0
 	 */
 	@Test
-	void testInitialize_default_ConsoleLogEventHandler() {
+	void testInitialize_default_ConsoleLogEventHandler() throws IOException {
 		LogManager logManager = new LogManager();
 		RootLogger rootLogger = mock(RootLogger.class);
 		LogEventHandlersInitializer initializer = new LogEventHandlersInitializer(logManager, rootLogger);
@@ -76,9 +76,9 @@ class LogEventHandlersInitializerTest {
 
 		PrintStream backup = System.out;
 
-		try {
-			ByteArrayOutputStream out = new ByteArrayOutputStream();
-			System.setOut(new PrintStream(out));
+		try (ByteArrayOutputStream out = new ByteArrayOutputStream(); //
+				PrintStream printStream = new PrintStream(out)) {
+			System.setOut(printStream);
 			initializer.initialize();
 
 			logManager.getLoggerInternal(getClass()).info("test-message");

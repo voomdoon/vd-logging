@@ -33,7 +33,7 @@ class LogEventImplTest {
 		 * @since 0.1.0
 		 */
 		@Test
-		void test_level() throws Exception {
+		void test_level() {
 			String actual = logEvent.toString();
 
 			assertThat(actual).contains("level: DEBUG");
@@ -43,7 +43,7 @@ class LogEventImplTest {
 		 * @since 0.1.0
 		 */
 		@Test
-		void test_message() throws Exception {
+		void test_message() {
 			String actual = logEvent.toString();
 
 			assertThat(actual).contains("message: test-message");

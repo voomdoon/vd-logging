@@ -35,7 +35,7 @@ class ConsoleLogEventHandlerTest extends LogEventHandlerTest {
 	 * @since 0.1.0
 	 */
 	@AfterAll
-	public static void deinit() {
+	static void deinit() {
 		TimeZone.setDefault(timeZoneOriginal);
 	}
 
@@ -43,7 +43,7 @@ class ConsoleLogEventHandlerTest extends LogEventHandlerTest {
 	 * @since 0.1.0
 	 */
 	@BeforeAll
-	public static void init() {
+	static void init() {
 		timeZoneOriginal = TimeZone.getDefault();
 		TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
 	}
@@ -56,7 +56,7 @@ class ConsoleLogEventHandlerTest extends LogEventHandlerTest {
 	/**
 	 * @since 0.1.0
 	 */
-	public ConsoleLogEventHandlerTest() {
+	ConsoleLogEventHandlerTest() {
 		super(new ConsoleLogEventHandler());
 	}
 
@@ -80,7 +80,7 @@ class ConsoleLogEventHandlerTest extends LogEventHandlerTest {
 	 * @since 0.1.0
 	 */
 	@Test
-	void testHandleLogEvent_error_class() throws Exception {
+	void testHandleLogEvent_error_class() {
 		TestLogEvent event = new TestLogEvent().setError(new RuntimeException("test-error"));
 
 		Out actualOutput = LoggingTestUtil.runHandleLogEvent(() -> handler, event);
@@ -92,7 +92,7 @@ class ConsoleLogEventHandlerTest extends LogEventHandlerTest {
 	 * @since 0.1.0
 	 */
 	@Test
-	void testHandleLogEvent_error_message() throws Exception {
+	void testHandleLogEvent_error_message() {
 		TestLogEvent event = new TestLogEvent().setError(new RuntimeException("test-error"));
 
 		Out actualOutput = LoggingTestUtil.runHandleLogEvent(() -> handler, event);
@@ -104,7 +104,7 @@ class ConsoleLogEventHandlerTest extends LogEventHandlerTest {
 	 * @since 0.1.0
 	 */
 	@Test
-	void testHandleLogEvent_level() throws Exception {
+	void testHandleLogEvent_level() {
 		TestLogEvent event = new TestLogEvent().setLevel(LogLevel.INFO);
 
 		Out actualOutput = LoggingTestUtil.runHandleLogEvent(() -> handler, event);
@@ -116,7 +116,7 @@ class ConsoleLogEventHandlerTest extends LogEventHandlerTest {
 	 * @since 0.1.0
 	 */
 	@Test
-	void testHandleLogEvent_level_ERROR() throws Exception {
+	void testHandleLogEvent_level_ERROR() {
 		TestLogEvent event = new TestLogEvent().setLevel(LogLevel.ERROR);
 
 		Out actualOutput = LoggingTestUtil.runHandleLogEvent(() -> handler, event);
@@ -129,7 +129,7 @@ class ConsoleLogEventHandlerTest extends LogEventHandlerTest {
 	 * @since 0.1.0
 	 */
 	@Test
-	void testHandleLogEvent_message_String() throws Exception {
+	void testHandleLogEvent_message_String() {
 		TestLogEvent event = new TestLogEvent().setMessage("test-message");
 
 		Out actualOutput = LoggingTestUtil.runHandleLogEvent(() -> handler, event);
@@ -141,7 +141,7 @@ class ConsoleLogEventHandlerTest extends LogEventHandlerTest {
 	 * @since 0.1.0
 	 */
 	@Test
-	void testHandleLogEvent_sourceClass() throws Exception {
+	void testHandleLogEvent_sourceClass() {
 		TestLogEvent event = new TestLogEvent().setSourceClass(ConsoleLogEventHandlerTest.class);
 
 		Out actualOutput = LoggingTestUtil.runHandleLogEvent(() -> handler, event);
@@ -153,7 +153,7 @@ class ConsoleLogEventHandlerTest extends LogEventHandlerTest {
 	 * @since 0.2.0
 	 */
 	@Test
-	void testHandleLogEvent_sourceClass_null() throws Exception {
+	void testHandleLogEvent_sourceClass_null() {
 		TestLogEvent event = new TestLogEvent().setSourceClass(null);
 
 		Out actualOutput = LoggingTestUtil.runHandleLogEvent(() -> handler, event);
@@ -165,7 +165,7 @@ class ConsoleLogEventHandlerTest extends LogEventHandlerTest {
 	 * @since 0.1.0
 	 */
 	@Test
-	void testHandleLogEvent_timestamp() throws Exception {
+	void testHandleLogEvent_timestamp() {
 		TestLogEvent event = new TestLogEvent().setTimestamp(1641038400000L);
 
 		Out actualOutput = LoggingTestUtil.runHandleLogEvent(() -> handler, event);

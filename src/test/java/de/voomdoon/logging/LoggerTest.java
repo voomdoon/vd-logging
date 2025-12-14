@@ -92,7 +92,7 @@ public abstract class LoggerTest {
 	 *            {@link Logger}
 	 * @since 0.1.0
 	 */
-	public LoggerTest(Logger logger) {
+	protected LoggerTest(Logger logger) {
 		this.logger = logger;
 	}
 
@@ -105,11 +105,10 @@ public abstract class LoggerTest {
 	}
 
 	/**
-	 * @throws Exception
 	 * @since 0.1.0
 	 */
 	@Test
-	void testDebug_Object() throws Exception {
+	void testDebug_Object() {
 		logger.debug(message);
 
 		assertThat(EVENTS).hasSize(1);
@@ -121,7 +120,7 @@ public abstract class LoggerTest {
 	 * @since 0.1.0
 	 */
 	@Test
-	void testDebug_Object_LogEvent_getLevel() throws Exception {
+	void testDebug_Object_LogEvent_getLevel() {
 		logger.debug(message);
 
 		assertThat(EVENTS).hasSize(1);
@@ -132,7 +131,7 @@ public abstract class LoggerTest {
 	 * @since 0.1.0
 	 */
 	@Test
-	void testDebug_Object_LogEvent_getSourceClass() throws Exception {
+	void testDebug_Object_LogEvent_getSourceClass() {
 		logger.debug(message);
 
 		assertThat(EVENTS).hasSize(1);
@@ -143,7 +142,7 @@ public abstract class LoggerTest {
 	 * @since 0.1.0
 	 */
 	@Test
-	void testDebug_Object_LogEvent_getTimestamp() throws Exception {
+	void testDebug_Object_LogEvent_getTimestamp() {
 		long before = System.currentTimeMillis();
 		logger.debug(message);
 		long after = System.currentTimeMillis();
@@ -153,11 +152,10 @@ public abstract class LoggerTest {
 	}
 
 	/**
-	 * @throws Exception
 	 * @since 0.1.0
 	 */
 	@Test
-	void testDebug_Object_Throwable() throws Exception {
+	void testDebug_Object_Throwable() {
 		logger.debug(message, error);
 
 		assertThat(EVENTS).hasSize(1);
@@ -166,11 +164,10 @@ public abstract class LoggerTest {
 	}
 
 	/**
-	 * @throws Exception
 	 * @since 0.1.0
 	 */
 	@Test
-	void testError_Object() throws Exception {
+	void testError_Object() {
 		logger.error(message);
 
 		assertThat(EVENTS).hasSize(1);
@@ -178,11 +175,10 @@ public abstract class LoggerTest {
 	}
 
 	/**
-	 * @throws Exception
 	 * @since 0.1.0
 	 */
 	@Test
-	void testError_Object_Throwable() throws Exception {
+	void testError_Object_Throwable() {
 		logger.error(message, error);
 
 		assertThat(EVENTS).hasSize(1);
@@ -190,11 +186,10 @@ public abstract class LoggerTest {
 	}
 
 	/**
-	 * @throws Exception
 	 * @since 0.1.0
 	 */
 	@Test
-	void testFatal_Object() throws Exception {
+	void testFatal_Object() {
 		logger.fatal(message);
 
 		assertThat(EVENTS).hasSize(1);
@@ -202,11 +197,10 @@ public abstract class LoggerTest {
 	}
 
 	/**
-	 * @throws Exception
 	 * @since 0.1.0
 	 */
 	@Test
-	void testFatal_Object_Throwable() throws Exception {
+	void testFatal_Object_Throwable() {
 		logger.fatal(message, error);
 
 		assertThat(EVENTS).hasSize(1);
@@ -214,11 +208,10 @@ public abstract class LoggerTest {
 	}
 
 	/**
-	 * @throws Exception
 	 * @since 0.1.0
 	 */
 	@Test
-	void testInfo_Object() throws Exception {
+	void testInfo_Object() {
 		logger.info(message);
 
 		assertThat(EVENTS).hasSize(1);
@@ -226,11 +219,10 @@ public abstract class LoggerTest {
 	}
 
 	/**
-	 * @throws Exception
 	 * @since 0.1.0
 	 */
 	@Test
-	void testInfo_Object_Throwable() throws Exception {
+	void testInfo_Object_Throwable() {
 		logger.info(message, error);
 
 		assertThat(EVENTS).hasSize(1);
@@ -239,21 +231,19 @@ public abstract class LoggerTest {
 
 	/**
 	 * @param level
-	 * @throws Exception
 	 * @since 0.1.0
 	 */
 	@ParameterizedTest
 	@EnumSource(LogLevel.class)
-	void testIsActive_doesNotThrowAnything(LogLevel level) throws Exception {
+	void testIsActive_doesNotThrowAnything(LogLevel level) {
 		assertDoesNotThrow(() -> logger.isActive(level));
 	}
 
 	/**
-	 * @throws Exception
 	 * @since 0.1.0
 	 */
 	@Test
-	void testLog_LogLevel_Object() throws Exception {
+	void testLog_LogLevel_Object() {
 		logger.log(LogLevel.INFO, message);
 
 		assertThat(EVENTS).hasSize(1);
@@ -261,11 +251,10 @@ public abstract class LoggerTest {
 	}
 
 	/**
-	 * @throws Exception
 	 * @since 0.1.0
 	 */
 	@Test
-	void testLog_LogLevel_Object_Throwable() throws Exception {
+	void testLog_LogLevel_Object_Throwable() {
 		logger.log(LogLevel.INFO, message, error);
 
 		assertThat(EVENTS).hasSize(1);
@@ -273,11 +262,10 @@ public abstract class LoggerTest {
 	}
 
 	/**
-	 * @throws Exception
 	 * @since 0.1.0
 	 */
 	@Test
-	void testTrace_Object() throws Exception {
+	void testTrace_Object() {
 		logger.trace(message);
 
 		assertThat(EVENTS).hasSize(1);
@@ -285,11 +273,10 @@ public abstract class LoggerTest {
 	}
 
 	/**
-	 * @throws Exception
 	 * @since 0.1.0
 	 */
 	@Test
-	void testTrace_Object_Throwable() throws Exception {
+	void testTrace_Object_Throwable() {
 		logger.trace(message, error);
 
 		assertThat(EVENTS).hasSize(1);
@@ -297,11 +284,10 @@ public abstract class LoggerTest {
 	}
 
 	/**
-	 * @throws Exception
 	 * @since 0.1.0
 	 */
 	@Test
-	void testWarn_Object() throws Exception {
+	void testWarn_Object() {
 		logger.warn(message);
 
 		assertThat(EVENTS).hasSize(1);
@@ -309,11 +295,10 @@ public abstract class LoggerTest {
 	}
 
 	/**
-	 * @throws Exception
 	 * @since 0.1.0
 	 */
 	@Test
-	void testWarn_Object_Throwable() throws Exception {
+	void testWarn_Object_Throwable() {
 		logger.warn(message, error);
 
 		assertThat(EVENTS).hasSize(1);

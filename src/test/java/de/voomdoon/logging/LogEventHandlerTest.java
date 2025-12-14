@@ -25,26 +25,24 @@ public abstract class LogEventHandlerTest {
 	 * @param handler
 	 * @since 0.1.0
 	 */
-	public LogEventHandlerTest(LogEventHandler handler) {
+	protected LogEventHandlerTest(LogEventHandler handler) {
 		this.handler = handler;
 	}
 
 	/**
-	 * @throws Exception
 	 * @since 0.1.0
 	 */
 	@Test
-	void testHandleLogEvent() throws Exception {
+	void testHandleLogEvent() {
 		assertDoesNotThrow(
 				() -> handler.handleLogEvent(new TestLogEvent().setLevel(LogLevel.INFO).setMessage("test-message")));
 	}
 
 	/**
-	 * @throws Exception
 	 * @since 0.1.0
 	 */
 	@Test
-	void testHandleLogEvent_error_NullPointerException_handler_null() throws Exception {
+	void testHandleLogEvent_error_NullPointerException_handler_null() {
 		assertThatThrownBy(() -> handler.handleLogEvent(null)).isInstanceOf(NullPointerException.class)
 				.hasMessageContaining("logEvent");
 	}
