@@ -1,14 +1,12 @@
 package de.voomdoon.logging;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.Collections;
@@ -17,7 +15,9 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import de.voomdoon.logging.handler.ConsoleLogEventHandler;
 import de.voomdoon.logging.root.RootLogger;
+import de.voomdoon.logging.test.TestLogEventHandler;
 
 /**
  * Test class for {@link LogEventHandlersInitializer}.
@@ -67,40 +67,28 @@ class LogEventHandlersInitializerTest {
 	 * @since 0.1.0
 	 */
 	@Test
-	void testInitialize_default_ConsoleLogEventHandler() throws IOException {
+	void testInitialize_default_ConsoleLogEventHandlerIsAdded() throws IOException {
 		LogManager logManager = new LogManager();
 		RootLogger rootLogger = mock(RootLogger.class);
 		LogEventHandlersInitializer initializer = new LogEventHandlersInitializer(logManager, rootLogger);
 
-		System.out.println("initialize...");
+		initializer.initialize();
 
-		PrintStream backup = System.out;
-
-		try (ByteArrayOutputStream out = new ByteArrayOutputStream(); //
-				PrintStream printStream = new PrintStream(out)) {
-			System.setOut(printStream);
-			initializer.initialize();
-
-			logManager.getLoggerInternal(getClass()).info("test-message");
-
-			assertThat(out.toString()).contains("test-message");
-		} finally {
-			System.setOut(backup);
-		}
+		verify(rootLogger).addLogEventHandler(any(ConsoleLogEventHandler.class));
 	}
 
 	/**
 	 * @since 0.1.0
 	 */
 	@Test
-	void testInitialize_withImplementation() {
+	void testInitialize_withImplementation_configuredLogEventHandlerIsAdded() {
 		LogManager logManager = mock(LogManager.class);
 		RootLogger rootLogger = mock(RootLogger.class);
 		LogEventHandlersInitializer initializer = new LogEventHandlersInitializer(logManager, rootLogger);
 
-		System.out.println("initialize...");
 		initializer.initialize(new TestClassLoader(new URL[0]));
 
-		verify(logManager).addLogEventHandlerInternal(any(LogEventHandler.class));
+		verify(logManager).addLogEventHandlerInternal(any(TestLogEventHandler.class));
+		verifyNoMoreInteractions(logManager);
 	}
 }

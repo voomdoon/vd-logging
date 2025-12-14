@@ -49,7 +49,7 @@ class LogEventHandlersInitializer {
 		Set<String> added = addLogEventHandlers(classLoader);
 
 		if (added.isEmpty()) {
-			rootLogger.addLogEventHandler(new ConsoleLogEventHandler());// TESTME
+			rootLogger.addLogEventHandler(new ConsoleLogEventHandler());
 			rootLogger.log(new LogEventImpl(LogLevel.INFO,
 					"LogEventHandlersInitializer: no LogEventHandler found: added ConsoleLogEventHandler"));
 		}
