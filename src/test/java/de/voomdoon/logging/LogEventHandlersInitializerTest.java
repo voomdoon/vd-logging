@@ -67,7 +67,7 @@ class LogEventHandlersInitializerTest {
 	 * @since 0.1.0
 	 */
 	@Test
-	void testInitialize_default_ConsoleLogEventHandlerIsAdded() throws IOException {
+	void testInitialize_default_ConsoleLogEventHandlerIsAdded() {
 		LogManager logManager = new LogManager();
 		RootLogger rootLogger = mock(RootLogger.class);
 		LogEventHandlersInitializer initializer = new LogEventHandlersInitializer(logManager, rootLogger);
