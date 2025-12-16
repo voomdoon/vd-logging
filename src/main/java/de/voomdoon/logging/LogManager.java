@@ -78,6 +78,7 @@ public class LogManager {
 
 	/**
 	 * @param handler
+	 *            DOCME
 	 * @since 0.1.0
 	 */
 	void addLogEventHandlerInternal(LogEventHandler handler) {
@@ -87,7 +88,7 @@ public class LogManager {
 	/**
 	 * @param clazz
 	 *            {@link Class}
-	 * @return
+	 * @return DOCME
 	 * @since 0.1.0
 	 */
 	Logger getLoggerInternal(Class<?> clazz) {

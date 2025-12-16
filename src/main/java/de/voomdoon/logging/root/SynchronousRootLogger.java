@@ -41,6 +41,9 @@ public class SynchronousRootLogger implements RootLogger {
 		}
 	}
 
+	/**
+	 * @since 0.1.0
+	 */
 	@Override
 	public Set<String> getLogEventHanderNames() {
 		return logEventHandlers.stream().map(Object::getClass).map(Class::getSimpleName).collect(Collectors.toSet());

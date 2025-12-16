@@ -49,6 +49,7 @@ public class ConsoleLogEventHandler implements LogEventHandler {
 	 * Formats a timestamp as a date {@link String}.
 	 *
 	 * @param timestamp
+	 *            DOCME
 	 * @return Date {@link String}.
 	 * @since 0.1.0
 	 */
@@ -62,7 +63,8 @@ public class ConsoleLogEventHandler implements LogEventHandler {
 
 	/**
 	 * @param sourceClass
-	 * @return
+	 *            DOCME
+	 * @return DOCME
 	 * @since 0.1.0
 	 */
 	private Object getName(Class<?> sourceClass) {

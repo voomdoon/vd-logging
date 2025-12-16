@@ -63,9 +63,13 @@ public class LogEventImpl implements LogEvent {
 	 * DOCME add JavaDoc for constructor LogEventImpl
 	 * 
 	 * @param level
+	 *            DOCME
 	 * @param message
+	 *            DOCME
 	 * @param error
+	 *            DOCME
 	 * @param sourceClass
+	 *            DOCME
 	 * @since 0.2.0
 	 */
 	public LogEventImpl(LogLevel level, Object message, Throwable error, Class<?> sourceClass) {
