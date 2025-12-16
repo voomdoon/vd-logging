@@ -10,7 +10,7 @@
 
 	<groupId>de.voomdoon.logging</groupId>
 	<artifactId>vd-logging</artifactId>
-	<version>0.2.0</version>
+	<version>0.2.1-SNAPSHOT</version>
 
 	<name>vd-logging</name>
 	<description>logging framework for all voomdoon modules</description>
@@ -20,7 +20,7 @@
 		<url>https://github.com/voomdoon/vd-logging</url>
 		<connection>scm:git:https://github.com/voomdoon/vd-logging.git</connection>
 		<developerConnection>scm:git:git@github.com:voomdoon/vd-logging.git</developerConnection>
-		<tag>0.2.0</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<properties>
