@@ -9,7 +9,7 @@ public interface Logger {
 
 	/**
 	 * @param message
-	 *            DOCME
+	 *            The message to log
 	 * @since 0.1.0
 	 */
 	void debug(Object message);
