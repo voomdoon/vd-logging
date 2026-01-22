@@ -1,4 +1,4 @@
-name: CodeQL Java
+name: CodeQL Advanced
 
 on:
   push:
@@ -14,20 +14,32 @@ permissions:
 
 jobs:
   analyze:
-    name: Analyze
+    name: Analyze (${{ matrix.language }})
     runs-on: ubuntu-latest
-    timeout-minutes: 360
+
+    permissions:
+      security-events: write
+      contents: read
+      actions: read
+      packages: read
 
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'java-kotlin' ]
+        include:
+          - language: actions
+            build-mode: none
+
+          - language: java-kotlin
+            build-mode: manual
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6.0.1
+        uses: actions/checkout@v4
 
+      # Only needed for Java/Kotlin
       - name: Set up JDK 21
+        if: matrix.language == 'java-kotlin'
         uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -38,9 +50,11 @@ jobs:
         uses: github/codeql-action/init@v4
         with:
           languages: ${{ matrix.language }}
+          build-mode: ${{ matrix.build-mode }}
 
-      # Build manually instead of autobuild (more deterministic)
+      # Manual build for Java/Kotlin so CodeQL can extract + compile with Java 21
       - name: Build with Maven
+        if: matrix.language == 'java-kotlin'
         run: mvn -B -DskipTests package
 
       - name: Perform CodeQL Analysis
