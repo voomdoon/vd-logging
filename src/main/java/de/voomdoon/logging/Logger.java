@@ -16,7 +16,7 @@ public interface Logger {
 
 	/**
 	 * @param message
-	 *            DOCME
+	 *            The message to log
 	 * @param throwable
 	 *            DOCME
 	 * @since 0.1.0
