@@ -25,7 +25,7 @@ public interface RootLogger {
 	 * @return
 	 * @since 0.1.0
 	 */
-	Set<String> getLogEventHanderNames();
+	Set<String> getLogEventHandlerNames();
 
 	/**
 	 * @param logEvent

@@ -59,7 +59,7 @@ public abstract class RootLoggerTest {
 
 		rootLogger.addLogEventHandler(handler);
 
-		assertThat(rootLogger.getLogEventHanderNames()).contains(handler.getClass().getSimpleName());
+		assertThat(rootLogger.getLogEventHandlerNames()).contains(handler.getClass().getSimpleName());
 	}
 
 	/**
@@ -72,7 +72,7 @@ public abstract class RootLoggerTest {
 		rootLogger.addLogEventHandler(handler);
 		rootLogger.removeLogEventHandler(handler);
 
-		assertThat(rootLogger.getLogEventHanderNames()).isEmpty();
+		assertThat(rootLogger.getLogEventHandlerNames()).isEmpty();
 	}
 
 	/**

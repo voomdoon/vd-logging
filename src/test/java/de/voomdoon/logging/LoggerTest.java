@@ -40,7 +40,7 @@ public abstract class LoggerTest {
 		}
 
 		@Override
-		public Set<String> getLogEventHanderNames() {
+		public Set<String> getLogEventHandlerNames() {
 			throw new UnsupportedOperationException(
 					"Method 'getLogEventHanderNames' not implemented at 'TestRootLogger'!");
 		}

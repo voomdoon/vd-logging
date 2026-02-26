@@ -100,6 +100,6 @@ public class LogManager {
 	 */
 	private void logInitialization() {
 		getLogger(getClass())
-				.trace("initialized logging with " + rootLogger.getLogEventHanderNames().stream().sorted().toList());
+				.trace("initialized logging with " + rootLogger.getLogEventHandlerNames().stream().sorted().toList());
 	}
 }
