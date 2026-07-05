@@ -16,6 +16,8 @@ import de.voomdoon.logging.root.SynchronousRootLogger;
 public class LogManager {
 
 	/**
+	 * Loggers indexed by source class.
+	 *
 	 * @since 0.1.0
 	 */
 	private static final WeakHashMap<Class<?>, Logger> CLASS_LOGGERS = new WeakHashMap<>();
@@ -42,6 +44,8 @@ public class LogManager {
 	}
 
 	/**
+	 * Returns a logger for the supplied class.
+	 *
 	 * @param clazz
 	 *            {@link Class}
 	 * @return {@link Logger}

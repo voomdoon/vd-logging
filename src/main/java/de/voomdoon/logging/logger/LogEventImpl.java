@@ -4,6 +4,8 @@ import de.voomdoon.logging.LogEvent;
 import de.voomdoon.logging.LogLevel;
 
 /**
+ * Default {@link LogEvent} implementation.
+ *
  * @author André Schulz
  *
  * @since 0.1.0
@@ -11,11 +13,15 @@ import de.voomdoon.logging.LogLevel;
 public class LogEventImpl implements LogEvent {
 
 	/**
+	 * Associated error, if any.
+	 *
 	 * @since 0.1.0
 	 */
 	private final Throwable error;
 
 	/**
+	 * Event log level.
+	 *
 	 * @since 0.1.0
 	 */
 	private final LogLevel level;
@@ -36,6 +42,8 @@ public class LogEventImpl implements LogEvent {
 	private final long timestamp;
 
 	/**
+	 * Creates a log event.
+	 *
 	 * @param level
 	 *            {@link LogLevel}
 	 * @param message
@@ -47,6 +55,8 @@ public class LogEventImpl implements LogEvent {
 	}
 
 	/**
+	 * Creates a log event with an optional error.
+	 *
 	 * @param level
 	 *            {@link LogLevel}
 	 * @param message

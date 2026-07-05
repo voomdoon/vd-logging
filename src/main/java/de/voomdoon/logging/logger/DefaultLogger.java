@@ -14,6 +14,8 @@ import de.voomdoon.logging.root.RootLogger;
 public class DefaultLogger implements Logger {
 
 	/**
+	 * Root logger receiving events.
+	 *
 	 * @since 0.1.0
 	 */
 	private RootLogger rootLogger;
@@ -24,6 +26,8 @@ public class DefaultLogger implements Logger {
 	private Class<?> sourceClass;
 
 	/**
+	 * Creates a logger for a source class.
+	 *
 	 * @param rootLogger
 	 *            {@link RootLogger}
 	 * @param sourceClass

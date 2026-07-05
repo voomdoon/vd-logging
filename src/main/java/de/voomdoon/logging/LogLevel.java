@@ -1,6 +1,8 @@
 package de.voomdoon.logging;
 
 /**
+ * Severity of a {@link LogEvent}.
+ *
  * @author André Schulz
  *
  * @since 0.1.0
@@ -8,31 +10,43 @@ package de.voomdoon.logging;
 public enum LogLevel {
 
 	/**
+	 * Debug level.
+	 *
 	 * @since 0.1.0
 	 */
 	DEBUG(1),
 
 	/**
+	 * Error level.
+	 *
 	 * @since 0.1.0
 	 */
 	ERROR(4),
 
 	/**
+	 * Fatal level.
+	 *
 	 * @since 0.1.0
 	 */
 	FATAL(5),
 
 	/**
+	 * Informational level.
+	 *
 	 * @since 0.1.0
 	 */
 	INFO(2),
 
 	/**
+	 * Trace level.
+	 *
 	 * @since 0.1.0
 	 */
 	TRACE(0),
 
 	/**
+	 * Warning level.
+	 *
 	 * @since 0.1.0
 	 */
 	WARN(3)

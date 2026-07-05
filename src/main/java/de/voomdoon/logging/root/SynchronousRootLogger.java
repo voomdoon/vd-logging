@@ -20,11 +20,15 @@ import de.voomdoon.logging.LogEventHandler;
 public class SynchronousRootLogger implements RootLogger {
 
 	/**
+	 * Registered log event handlers.
+	 *
 	 * @since 0.1.0
 	 */
 	private List<LogEventHandler> logEventHandlers;
 
 	/**
+	 * Creates an empty synchronous root logger.
+	 *
 	 * @since 0.1.0
 	 */
 	public SynchronousRootLogger() {

@@ -20,6 +20,12 @@ import de.voomdoon.logging.LogLevel;
 public class ConsoleLogEventHandler implements LogEventHandler {
 
 	/**
+	 * Creates a console log event handler.
+	 */
+	public ConsoleLogEventHandler() {
+	}
+
+	/**
 	 * @since 0.1.0
 	 */
 	private final Date date = new Date();

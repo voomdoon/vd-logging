@@ -15,6 +15,8 @@ import de.voomdoon.logging.LogEventHandler;
 public interface RootLogger {
 
 	/**
+	 * Adds a log event handler.
+	 *
 	 * @param handler
 	 *            {@link LogEventHandler}
 	 * @since 0.1.0
@@ -22,12 +24,16 @@ public interface RootLogger {
 	void addLogEventHandler(LogEventHandler handler);
 
 	/**
-	 * @return
+	 * Returns the registered handler names.
+	 *
+	 * @return handler names as {@link Set}
 	 * @since 0.1.0
 	 */
 	Set<String> getLogEventHandlerNames();
 
 	/**
+	 * Logs an event.
+	 *
 	 * @param logEvent
 	 *            {@link LogEvent}
 	 * @since 0.1.0
@@ -35,6 +41,8 @@ public interface RootLogger {
 	void log(LogEvent logEvent);
 
 	/**
+	 * Removes a log event handler.
+	 *
 	 * @param handler
 	 *            {@link LogEventHandler}
 	 * @since 0.1.0
