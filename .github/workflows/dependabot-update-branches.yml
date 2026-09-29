@@ -39,7 +39,7 @@ jobs:
             --state open \
             --base "$base" \
             --author "dependabot[bot]" \
-            --json number,headRefName,headRefOid,headRepositoryOwner,isCrossRepository,mergeStateStatus \
+            --json number,headRefName,headRefOid,headRepositoryOwner,isCrossRepository \
             --limit 100)"
 
           count="$(echo "$prs" | jq 'length')"
@@ -51,19 +51,20 @@ jobs:
             head_sha="$(echo "$pr" | jq -r '.headRefOid')"
             owner="$(echo "$pr" | jq -r '.headRepositoryOwner.login')"
             is_cross_repository="$(echo "$pr" | jq -r '.isCrossRepository')"
-            merge_state="$(echo "$pr" | jq -r '.mergeStateStatus')"
 
             if [ "$is_cross_repository" = "true" ]; then
               echo "Skipping PR #$number from $owner/$branch because it is cross-repository."
               continue
             fi
 
-            if [ "$merge_state" != "BEHIND" ]; then
-              echo "Skipping PR #$number branch $branch with merge state $merge_state."
+            pr_json="$(gh api "/repos/$repo/pulls/$number")"
+            mergeable_state="$(echo "$pr_json" | jq -r '.mergeable_state // "unknown"')"
+
+            if [ "$mergeable_state" != "behind" ]; then
+              echo "Skipping PR #$number branch $branch with mergeable state $mergeable_state."
               continue
             fi
 
-            pr_json="$(gh api "/repos/$repo/pulls/$number")"
             base_sha="$(echo "$pr_json" | jq -r '.base.sha')"
             marker="<!-- dependabot-rebase-at-base:$base_sha -->"
             comments="$(gh api --paginate "/repos/$repo/issues/$number/comments" \
