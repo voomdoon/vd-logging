@@ -65,8 +65,9 @@ jobs:
               continue
             fi
 
-            base_sha="$(echo "$pr_json" | jq -r '.base.sha')"
-            marker="<!-- dependabot-rebase-at-base:$base_sha -->"
+            # .base.sha is the base tip recorded at the PR's last head push, not the current tip
+            base_sha="$(gh api "/repos/$repo/commits/$base" --jq '.sha')"
+            marker="<!-- dependabot-rebase-v2-at-base:$base_sha -->"
             comments="$(gh api --paginate "/repos/$repo/issues/$number/comments" \
               --jq '.[] | select(.user.login == "voomdoon-bot") | .body')"
 
@@ -81,8 +82,9 @@ jobs:
               echo "Requesting Dependabot rebase for PR #$number branch $branch at base $base_sha."
               gh pr comment "$number" \
                 --repo "$repo" \
-                --body "@dependabot rebase
+                --body "Tracking Dependabot rebase attempt for base \`${base_sha:0:12}\`.
 
           $marker"
+              gh pr comment "$number" --repo "$repo" --body "@dependabot rebase"
             fi
           done
